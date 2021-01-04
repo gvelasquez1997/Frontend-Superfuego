@@ -1,0 +1,115 @@
+<h2>SetPoints</h2>
+
+<div class="tabla" nz-row>
+    <div style="display: flex; justify-content: flex-end;" nz-col>
+        <button nz-button nzType="primary" nzSize="default" (click)="showModal()"><i nz-icon nzType="plus" nzTheme="outline"></i>Crear Setpoint</button>
+    </div>
+</div>
+
+<br>
+
+<div class="tabla">
+    <nz-table #ListSetPoints [nzData]="setPoints" nzShowSizeChanger nzBordered>
+        <thead>
+            <tr>
+                <th nzWidth="10%">Id</th>
+                <th>Descripcion</th>
+                <th nzWidth="10%">Valor</th>
+                <th nzWidth="10%">Estado</th>
+                <th nzWidth="20%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of ListSetPoints.data">
+                <td>{{ data.Id }}</td>
+                <td>{{ data.Descripcion }}</td>
+                <td>{{ data.Valor }}</td>
+                <td>
+                    <div nz-row style="display: flex; justify-content: center;">
+                        <div nz-col>
+                            <label nz-checkbox nzDisabled [ngModel]=" data.Estado "></label>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div nz-row style="display: flex; justify-content: center;">
+                        <div nz-col nzSpan="8">
+                            <button nz-button nzType="default" [nzSize]="'default'" title="Editar" (click)="selectSetPoint( data )">
+                                <i nz-icon nzType="edit" nzTheme="outline"></i>
+                            </button>
+                        </div>
+                        <div nz-col nzSpan="8">
+                            <button nz-button nzType="danger" [nzSize]="'default'" title="Eliminar" (click)="deleteSetPoint( data )">
+                                <i nz-icon nzType="delete" nzTheme="outline"></i>
+                            </button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>
+
+<nz-modal nzMaskClosable="false" [(nzVisible)]="isVisible" [nzTitle]="modalTitle" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="handleCancel()">
+    <ng-template #modalTitle>
+        Informacion del SetPoint
+    </ng-template>
+
+    <ng-template #modalContent>
+        <form nz-form [formGroup]="validateForm" (ngSubmit)="update ? updateSetPoint() : saveNewSetPoint()">
+
+            <div nz-row>
+                <div nz-col [nzSpan]="24">
+                    <nz-form-item>
+                        <nz-form-label nzRequired nzFor="descripcion">Descripcion del SetPoint</nz-form-label>
+                        <nz-form-control nzHasFeedback nzErrorTip="Este campo es requerido.">
+                            <input nz-input autocomplete="off" placeholder="Ingrese la descripcion" formControlName="descripcion" id="descripcion" />
+                        </nz-form-control>
+                    </nz-form-item>
+
+                </div>
+            </div>
+
+            <div nz-row>
+                <div nz-col [nzSpan]="11">
+                    <nz-form-item>
+                        <nz-form-label nzRequired nzFor="valor">Valor</nz-form-label>
+                        <nz-form-control nzHasFeedback nzErrorTip="Este campo es requerido.">
+                            <input nz-input autocomplete="off" placeholder="Ingrese el valor" formControlName="valor" id="valor" />
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div nz-col [nzSpan]="1"></div>
+                <div nz-col [nzSpan]="12">
+                    <nz-form-item>
+                        <nz-form-label nzFor="estado" nzRequired>Estado</nz-form-label>
+                        <nz-form-control nzHasFeedback nzErrorTip="Porfavor seleccione una opcion.">
+                            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Seleccione una opcion:" id="estado" formControlName="estado">
+                                <nz-option nzLabel="Activo" nzValue="true"></nz-option>
+                                <nz-option nzLabel="Inactivo" nzValue="false"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+            </div>
+
+            <div nz-row>
+                <div nz-col>
+                    <nz-form-item>
+                        <nz-form-control>
+                            <button *ngIf="update == false" nz-button nzType="primary">Guardar</button>
+                            <button *ngIf="update == true" nz-button nzType="default">Actualizar</button>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+            </div>
+
+        </form>
+    </ng-template>
+
+    <ng-template #modalFooter>
+        <button nz-button nzType="danger" (click)="handleCancel()">Cerrar</button>
+    </ng-template>
+
+
+</nz-modal>

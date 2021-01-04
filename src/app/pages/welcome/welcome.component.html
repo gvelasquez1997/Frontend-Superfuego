@@ -1,0 +1,106 @@
+<nz-layout class="app-layout">
+    <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+        <div class="sidebar-logo">
+            <a routerLink="/inicio">
+                <img src="assets/fuego.png" alt="logo">
+                <h1>Sistema de monitoreo</h1>
+            </a>
+        </div>
+        <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+            <li nz-menu-item nz-tooltip nzTooltipPlacement="right" routerLink="/inicio" [nzTitle]="isCollapsed ? 'Inicio' : ''" nzSelected>
+                <i nz-icon nzType="home"></i>
+                <span>Inicio</span>
+            </li>
+            <li nz-submenu nzTitle="Mantenimiento" nzIcon="form">
+                <ul>
+                    <!--<li nz-menu-item nzMatchRouter>
+                        <a routerLink="/grupo-usuarios">Grupo de usuarios</a>
+                    </li>-->
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/empresas">Empresa</a>
+                    </li>
+                    <!--<li nz-menu-item nzMatchRouter>
+                        <a routerLink="/usuarios">Usuarios</a>
+                    </li>-->
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/sitios">Sitios</a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/cuarto-bombas">Cuartos de bombas</a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/unidades">Unidades</a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/tipo-motor">Tipos de Motor</a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/senales">Señales</a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/tanques-agua">Tanques de agua</a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/setpoint">SetPoint</a>
+                    </li>
+                </ul>
+            </li>
+            <li nz-menu-item nz-tooltip nzTooltipPlacement="right" routerLink="/en-vivo" [nzTitle]="isCollapsed ? 'En vivo' : ''">
+                <i nz-icon nzType="alert"></i>
+                <span>En vivo</span>
+            </li>
+            <li nz-submenu nzTitle="Reportes" nzIcon="area-chart">
+                <ul>
+                    <li nz-menu-item nzMatchRouter>
+                        <a>Reporte 1</a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a>Reporte 2</a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a>Reporte 3</a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a>Reporte 4</a>
+                    </li>
+                </ul>
+            </li>
+            <li nz-submenu nzTitle="Ayuda" nzIcon="smile">
+                <ul>
+                    <li nz-menu-item nzMatchRouter>
+                        <a>Manual de usuario</a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                        <a>Acerca de</a>
+                    </li>
+                </ul>
+            </li>
+            <li nz-menu-item nz-tooltip nzTooltipPlacement="right" routerLink="/" [nzTitle]="isCollapsed ? 'Cerrar sesión' : ''">
+                <i nz-icon nzType="logout"></i>
+                <span>Cerrar sesión</span>
+            </li>
+        </ul>
+    </nz-sider>
+    <nz-layout>
+        <nz-header>
+            <div class="app-header">
+                <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+                    <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+                </span>
+            </div>
+        </nz-header>
+        <nz-content>
+            <div class="inner-content">
+                <router-outlet></router-outlet>
+            </div>
+            <br />
+        </nz-content>
+    </nz-layout>
+</nz-layout>
+
+<ngx-spinner type="ball-clip-rotate-multiple">
+    <br/>
+    <br/>
+    <br/>
+    <p style="font-size: 20px; color: white"> Cargando... </p>
+</ngx-spinner>

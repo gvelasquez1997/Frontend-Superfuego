@@ -1,0 +1,18 @@
+<h1>Tus Usuarios</h1>
+<br>
+<div class="tabla">
+    <nz-table #basicTable [nzData]="listOfData">
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of basicTable.data">
+                <td>{{ data.name }}</td>
+                <td>{{ data.age }}</td>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>
