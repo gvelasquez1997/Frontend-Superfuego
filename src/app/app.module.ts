@@ -42,6 +42,9 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzCalendarModule } from 'ng-zorro-antd/calendar';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzProgressModule } from 'ng-zorro-antd/progress';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { NzTagModule } from 'ng-zorro-antd/tag';
 
 // import { NZ_I18N } from 'ng-zorro-antd/i18n';
 // import { en_US } from 'ng-zorro-antd/i18n';
@@ -122,7 +125,10 @@ registerLocaleData(en);
     NzSpinModule,
     NzCalendarModule,
     NzToolTipModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NzProgressModule,
+    NzAlertModule,
+    NzTagModule
     //////////////////////////
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
