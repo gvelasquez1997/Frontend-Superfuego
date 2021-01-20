@@ -1,7 +1,16 @@
 <h2>Empresas</h2>
 
 <div class="tabla" nz-row>
-    <div style="display: flex; justify-content: flex-end;" nz-col>
+    <div style="display: flex; justify-content: flex-start;" nz-col nzSpan="7">
+        <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+            <input type="text" nz-input placeholder="Buscar.." />
+        </nz-input-group>
+        <ng-template #suffixIconButton>
+            <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
+        </ng-template>
+    </div>
+
+    <div style="display: flex; justify-content: flex-end;" nz-col nzSpan="17">
         <button nz-button nzType="primary" nzSize="default" (click)="showModal()"><i nz-icon nzType="plus" nzTheme="outline"></i>Crear Empresa</button>
     </div>
 </div>

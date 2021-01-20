@@ -1,0 +1,21 @@
+.layout {
+    height: 100%;
+    width: 100%;
+}
+
+.tabla {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.ant-btn-primary {
+    color: #fff;
+    /*background-color: #334d7c;
+  border-color: #334d7c;*/
+}
+
+.ant-btn-default {
+    color: #fff;
+    background-color: #10dc60;
+    border-color: #10dc60;
+}
