@@ -1,0 +1,89 @@
+<h2>Datos Historicos</h2>
+
+<div class="tabla" nz-row>
+
+    <div style="display: flex; justify-content: flex-start;" nz-col nzSpan="7">
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Seleccione una opcion:" ngModel="1">
+            <nz-option nzLabel="Rango de fecha" nzValue="1"></nz-option>
+            <nz-option nzLabel="Hoy" nzValue="2"></nz-option>
+            <nz-option nzLabel="Ayer" nzValue="3"></nz-option>
+            <nz-option nzLabel="Esta semana hasta la fecha" nzValue="4"></nz-option>
+            <nz-option nzLabel="Este mes hasta la fecha" nzValue="5"></nz-option>
+            <nz-option nzLabel="Este año hasta la fecha" nzValue="6"></nz-option>
+            <nz-option nzLabel="Ultimo Año" nzValue="7"></nz-option>
+            <nz-option nzLabel="Ultimo Mes" nzValue="8"></nz-option>
+        </nz-select>
+    </div>
+
+    <div style="display: flex; justify-content: center;" nz-col nzSpan="7">
+        <nz-range-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+    </div>
+
+    <div style="display: flex; justify-content: flex-end;" nz-col nzSpan="10">
+        <button nz-button nzType="primary" nzSize="default"><i nz-icon nzType="plus" nzTheme="outline"></i>Mostrar</button>
+    </div>
+</div>
+
+<br/>
+
+<div class="tabla" nz-row>
+    <div style="display: flex; justify-content: flex-end;" nz-col nzSpan="7">
+        <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+            <input type="text" nz-input placeholder="Buscar.." />
+        </nz-input-group>
+        <ng-template #suffixIconButton>
+            <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
+        </ng-template>
+    </div>
+</div>
+
+<br>
+
+<div class="tabla">
+    <nz-table nzShowSizeChanger nzBordered>
+        <thead>
+            <tr>
+                <th nzWidth="10%">Id</th>
+                <th>Codigo</th>
+                <th nzWidth="10%">Ubicacion</th>
+                <th nzWidth="20%">Descripcion</th>
+                <th nzWidth="20%">20210326</th>
+                <th nzWidth="20%">20210327</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>CL1_S1_ST</td>
+                <td>Principal</td>
+                <td>Tanque 1</td>
+                <td>250,00</td>
+                <td>280,000</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>CL1_S1_ST</td>
+                <td>Principal</td>
+                <td>Tanque 1</td>
+                <td>250,00</td>
+                <td>280,000</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>CL1_S1_ST</td>
+                <td>Principal</td>
+                <td>Tanque 1</td>
+                <td>250,00</td>
+                <td>280,000</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>CL1_S1_ST</td>
+                <td>Principal</td>
+                <td>Tanque 1</td>
+                <td>250,00</td>
+                <td>280,000</td>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>

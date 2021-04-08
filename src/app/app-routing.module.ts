@@ -19,6 +19,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { EnVivoComponent } from './pages/en-vivo/en-vivo.component';
 import { TipoMotorComponent } from './pages/tipo-motor/tipo-motor.component';
 import { SetpointComponent } from './pages/setpoint/setpoint.component';
+import { DatosHistoricosComponent } from './pages/reportes/datos-historicos/datos-historicos.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
@@ -38,7 +39,8 @@ const routes: Routes = [
       { path: 'inicio', component: InicioComponent },
       { path: 'en-vivo', component: EnVivoComponent },
       { path: 'tipo-motor', component: TipoMotorComponent },
-      { path: 'setpoint', component: SetpointComponent }
+      { path: 'setpoint', component: SetpointComponent },
+      { path: 'datosHistoricos', component: DatosHistoricosComponent }
 
     ]
   }

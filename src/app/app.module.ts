@@ -63,6 +63,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { EnVivoComponent } from './pages/en-vivo/en-vivo.component';
 import { SetpointComponent } from './pages/setpoint/setpoint.component';
 import { TipoMotorComponent } from './pages/tipo-motor/tipo-motor.component';
+import { DatosHistoricosComponent } from './pages/reportes/datos-historicos/datos-historicos.component';
 
 registerLocaleData(en);
 
@@ -82,7 +83,8 @@ registerLocaleData(en);
     InicioComponent,
     EnVivoComponent,
     SetpointComponent,
-    TipoMotorComponent
+    TipoMotorComponent,
+    DatosHistoricosComponent
   ],
   imports: [
     BrowserModule,
