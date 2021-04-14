@@ -1,89 +1,132 @@
-<h2 style="display: flex; justify-content: center;">
-    Datos Actuales
-</h2>
+<h2 style="display: flex; justify-content: center;">Datos en Vivo</h2>
 
-<!--<div class="tabla" nz-row>
-    <div style="display: flex; justify-content: center;" nz-col nzSpan="12">
-        <nz-card nzTitle="Motor Diesel" style="width: 475px" [nzExtra]="extraTemplate">
-            <div nz-row>
-                <div style="display: flex; justify-content: center;" nz-col>
-                    <img src="../../../assets/motor diesel.png" width="350px" height="250px">
-                </div>
-            </div>
-        </nz-card>
-        <ng-template #extraTemplate>
-            <a>More</a>
-        </ng-template>
+<div nz-row>
+
+    <div style="display: flex; justify-content: flex-start;" nz-col nzSpan="12">
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Seleccione una opcion:" ngModel="1">
+            <nz-option nzLabel="Rango de fecha" nzValue="1"></nz-option>
+            <nz-option nzLabel="Hoy" nzValue="2"></nz-option>
+            <nz-option nzLabel="Ayer" nzValue="3"></nz-option>
+            <nz-option nzLabel="Esta semana hasta la fecha" nzValue="4"></nz-option>
+            <nz-option nzLabel="Este mes hasta la fecha" nzValue="5"></nz-option>
+            <nz-option nzLabel="Este año hasta la fecha" nzValue="6"></nz-option>
+            <nz-option nzLabel="Ultimo Año" nzValue="7"></nz-option>
+            <nz-option nzLabel="Ultimo Mes" nzValue="8"></nz-option>
+        </nz-select>
     </div>
 
-    <div style="display: flex; justify-content: center;" nz-col nzSpan="12">
-        <nz-card nzTitle="Motor Electrico" style="width: 475px">
-            <div nz-row>
-                <div style="display: flex; justify-content: center;" nz-col>
-                    <img src="../../../assets/Motor Electrico.jpg" width="350px" height="250px">
-                </div>
-            </div>
-        </nz-card>
+    <div style="display: flex; justify-content: flex-end;" nz-col nzSpan="12">
+        <button nz-button nzType="primary" nzSize="default"><i nz-icon nzType="plus" nzTheme="outline"></i>Mostrar</button>
     </div>
-</div>-->
+</div>
+
+<br>
+
 <div class="tabla" nz-row>
 
     <div style="display: flex; justify-content: center;" nz-col nzSpan="24">
-        <nz-card nzTitle="Bomba Diesel" style="width: 700px" nzType="inner" [nzExtra]="extraTemplate">
-            <div nz-row>
-                <div nz-col nzSpan="21">
-                    <div nz-row>
-                        <div nz-col nzSpan="4">
-                            <p>Bomba Activa</p>
-                        </div>
-                        <div nz-col nzSpan="3">
-                            <nz-tag [nzColor]="'green'">OK</nz-tag>
-                        </div>
-                        <div nz-col nzSpan="5">
-                            <p>Modo Automatico</p>
-                        </div>
-                        <div nz-col nzSpan="3">
-                            <nz-tag [nzColor]="'red'">ALERT</nz-tag>
-                        </div>
-                        <div nz-col nzSpan="5">
-                            <p>Problema General</p>
-                        </div>
-                        <div nz-col nzSpan="1">
-                            <nz-tag [nzColor]="'green'">OK</nz-tag>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="display: flex; justify-content: flex-end;" nz-col nzSpan="3">
-                    <!--<button nz-button nzType="danger" nzSize="default"><i nz-icon nzType="poweroff" nzTheme="outline"></i>OFF</button>-->
-                    <button nz-button nzType="default" nzSize="default"><i nz-icon nzType="poweroff" nzTheme="outline"></i>RUN</button>
-                </div>
-            </div>
+        <nz-card nzTitle="Bomba con motor Diesel" style="width: 750px" nzType="inner" [nzExtra]="templateMotorDiesel">
 
             <div nz-row>
-                <div style="display: flex; justify-content: center;" nz-col>
+                <div style="display: flex; justify-content: center;" nz-col nzSpan="16">
                     <img src="assets/motor diesel.png" width="350px" height="300px">
                 </div>
+
+                <div nz-col nzSpan="8">
+
+                    <nz-table nzTemplateMode nzSize="small">
+                        <thead>
+                          <tr>
+                            <th>Señal</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Switch Apagado</td>
+                            <td><nz-tag [nzColor]="'green'"><i nz-icon nzType="check" nzTheme="outline"></i></nz-tag></td>
+                          </tr>
+                          <tr>
+                            <td>Switch Manual</td>
+                            <td><nz-tag [nzColor]="'red'"><i nz-icon nzType="close" nzTheme="outline"></i></nz-tag></td>
+                          </tr>
+                          <tr>
+                            <td>Temperatura</td>
+                            <td><nz-tag [nzColor]="'gold'"><i nz-icon nzType="warning" nzTheme="fill"></i></nz-tag></td>
+                          </tr>
+                          <tr>
+                            <td>Encendido</td>
+                            <td><nz-tag [nzColor]="'red'"><i nz-icon nzType="close" nzTheme="outline"></i></nz-tag></td>
+                          </tr>
+                        </tbody>
+                      </nz-table>
+                </div>
             </div>
+
             <div nz-row>
                 <div nz-col>
-                    <nz-alert nzType="error" nzMessage="High Engine Tempreature" nzShowIcon></nz-alert>
+                    <nz-alert nzType="error" nzMessage="Bajo Nivel de Agua." nzShowIcon></nz-alert>
                 </div>
             </div>
             <br/>
+
+            <div nz-row>
+                <div nz-col>
+                    <nz-alert nzType="error" nzMessage="Alta Temperatura." nzShowIcon></nz-alert>
+                </div>
+            </div> 
+            <br/>
+            
             <div nz-row>
                 <div nz-col>
                     <!--<p>Low raw water flow!</p>-->
                     <p>Nivel de Agua</p>
                     <nz-progress [nzPercent]="20" nzStatus="exception"></nz-progress>
-                    <p>Diesel</p>
-                    <nz-progress [nzPercent]="70"></nz-progress>
+                </div>
+            </div>
+
+            <div nz-row>
+                <div nz-col>
+                    <p>Presion</p>
+                    <nz-slider [nzMarks]="marks" [ngModel]="300" [nzDisabled]="true" [nzMax]="500"></nz-slider>
+                </div>
+            </div>
+
+            <br/>
+            <hr/>
+            <br/>
+
+            <div nz-row>
+                <div style="display: flex; justify-content: center;" nz-col nzSpan="16">
+                    <img src="assets/bomba jockey.jpg" width="350px" height="300px">
+                </div>
+
+                <div nz-col nzSpan="8">
+
+                    <nz-table nzTemplateMode nzSize="small">
+                        <thead>
+                          <tr>
+                            <th>Señal</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>En Marcha</td>
+                            <td><nz-tag [nzColor]="'green'"><i nz-icon nzType="check" nzTheme="outline"></i></nz-tag></td>
+                          </tr>
+                          <tr>
+                            <td>Falla de Energia</td>
+                            <td><nz-tag [nzColor]="'red'"><i nz-icon nzType="close" nzTheme="outline"></i></nz-tag></td>
+                          </tr>
+                        </tbody>
+                      </nz-table>
                 </div>
             </div>
 
         </nz-card>
-        <ng-template #extraTemplate>
-            <button nz-button nzType="primary" nzSize="default">Ver Eventos</button>
+        <ng-template #templateMotorDiesel>
+            <button nz-button nzType="default" nzSize="default"><i nz-icon nzType="poweroff" nzTheme="outline"></i>Motor en Marcha</button>
         </ng-template>
     </div>
 </div>
@@ -93,48 +136,48 @@
 <div class="tabla" nz-row>
 
     <div style="display: flex; justify-content: center;" nz-col nzSpan="24">
-        <nz-card nzTitle="Bomba Electrica" style="width: 700px" nzType="inner" [nzExtra]="extraTemplate">
-            <div nz-row>
-                <div nz-col nzSpan="21">
-                    <div nz-row>
-                        <div nz-col nzSpan="4">
-                            <p>Bomba Activa</p>
-                        </div>
-                        <div nz-col nzSpan="3">
-                            <nz-tag [nzColor]="'green'">OK</nz-tag>
-                        </div>
-                        <div nz-col nzSpan="5">
-                            <p>Modo Automatico</p>
-                        </div>
-                        <div nz-col nzSpan="3">
-                            <nz-tag [nzColor]="'red'">ALERT</nz-tag>
-                        </div>
-                        <div nz-col nzSpan="5">
-                            <p>Problema General</p>
-                        </div>
-                        <div nz-col nzSpan="1">
-                            <nz-tag [nzColor]="'green'">OK</nz-tag>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="display: flex; justify-content: flex-end;" nz-col nzSpan="3">
-                    <!--<button nz-button nzType="danger" nzSize="default"><i nz-icon nzType="poweroff" nzTheme="outline"></i>OFF</button>-->
-                    <button nz-button nzType="default" nzSize="default"><i nz-icon nzType="poweroff" nzTheme="outline"></i>RUN</button>
-                </div>
-            </div>
+        <nz-card nzTitle="Bomba con motor Electrico" style="width: 750px" nzType="inner" [nzExtra]="templateMotorElectrico">
 
             <div nz-row>
-                <div style="display: flex; justify-content: center;" nz-col>
+                <div style="display: flex; justify-content: center;" nz-col nzSpan="16">
                     <img src="assets/Motor Electrico.jpg" width="350px" height="300px">
                 </div>
-            </div>
-            <div nz-row>
-                <div nz-col>
-                    <nz-alert nzType="error" nzMessage="High Engine Tempreature" nzShowIcon></nz-alert>
+
+                <div nz-col nzSpan="8">
+
+                    <nz-table nzTemplateMode nzSize="small">
+                        <thead>
+                          <tr>
+                            <th>Señal</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Falla de Energia</td>
+                            <td><nz-tag [nzColor]="'green'"><i nz-icon nzType="check" nzTheme="outline"></i></nz-tag></td>
+                          </tr>
+                          <tr>
+                            <td>Fase Invertida</td>
+                            <td><nz-tag [nzColor]="'gold'"><i nz-icon nzType="warning" nzTheme="fill"></i></nz-tag></td>
+                          </tr>
+                          <tr>
+                            <td>Problema General</td>
+                            <td><nz-tag [nzColor]="'red'"><i nz-icon nzType="close" nzTheme="outline"></i></nz-tag></td>
+                          </tr>
+                        </tbody>
+                      </nz-table>
                 </div>
             </div>
+
+            <div nz-row>
+                <div nz-col>
+                    <nz-alert nzType="error" nzMessage="Bajo Nivel de Agua." nzShowIcon></nz-alert>
+                </div>
+            </div>
+
             <br/>
+            
             <div nz-row>
                 <div nz-col>
                     <!--<p>Low raw water flow!</p>-->
@@ -143,71 +186,48 @@
                 </div>
             </div>
 
-        </nz-card>
-        <ng-template #extraTemplate>
-            <button nz-button nzType="primary" nzSize="default">Ver Eventos</button>
-        </ng-template>
-    </div>
-</div>
-
-<br>
-
-<div class="tabla" nz-row>
-
-    <div style="display: flex; justify-content: center;" nz-col nzSpan="24">
-        <nz-card nzTitle="Bomba Jockey" style="width: 700px" nzType="inner" [nzExtra]="extraTemplate">
             <div nz-row>
-                <div nz-col nzSpan="21">
-                    <div nz-row>
-                        <div nz-col nzSpan="4">
-                            <p>Bomba Activa</p>
-                        </div>
-                        <div nz-col nzSpan="3">
-                            <nz-tag [nzColor]="'green'">OK</nz-tag>
-                        </div>
-                        <div nz-col nzSpan="5">
-                            <p>Modo Automatico</p>
-                        </div>
-                        <div nz-col nzSpan="3">
-                            <nz-tag [nzColor]="'red'">ALERT</nz-tag>
-                        </div>
-                        <div nz-col nzSpan="5">
-                            <p>Problema General</p>
-                        </div>
-                        <div nz-col nzSpan="1">
-                            <nz-tag [nzColor]="'green'">OK</nz-tag>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="display: flex; justify-content: flex-end;" nz-col nzSpan="3">
-                    <!--<button nz-button nzType="danger" nzSize="default"><i nz-icon nzType="poweroff" nzTheme="outline"></i>OFF</button>-->
-                    <button nz-button nzType="default" nzSize="default"><i nz-icon nzType="poweroff" nzTheme="outline"></i>RUN</button>
+                <div nz-col>
+                    <p>Presion</p>
+                    <nz-slider [nzMarks]="marks" [ngModel]="300" [nzDisabled]="true" [nzMax]="500"></nz-slider>
                 </div>
             </div>
 
+            <br/>
+            <hr/>
+            <br/>
+
             <div nz-row>
-                <div style="display: flex; justify-content: center;" nz-col>
+                <div style="display: flex; justify-content: center;" nz-col nzSpan="16">
                     <img src="assets/bomba jockey.jpg" width="350px" height="300px">
                 </div>
-            </div>
-            <div nz-row>
-                <div nz-col>
-                    <nz-alert nzType="error" nzMessage="High Engine Tempreature" nzShowIcon></nz-alert>
-                </div>
-            </div>
-            <br/>
-            <div nz-row>
-                <div nz-col>
-                    <!--<p>Low raw water flow!</p>-->
-                    <p>Nivel de Agua</p>
-                    <nz-progress [nzPercent]="20" nzStatus="exception"></nz-progress>
+
+                <div nz-col nzSpan="8">
+
+                    <nz-table nzTemplateMode nzSize="small">
+                        <thead>
+                          <tr>
+                            <th>Señal</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>En Marcha</td>
+                            <td><nz-tag [nzColor]="'green'"><i nz-icon nzType="check" nzTheme="outline"></i></nz-tag></td>
+                          </tr>
+                          <tr>
+                            <td>Falla de Energia</td>
+                            <td><nz-tag [nzColor]="'red'"><i nz-icon nzType="close" nzTheme="outline"></i></nz-tag></td>
+                          </tr>
+                        </tbody>
+                      </nz-table>
                 </div>
             </div>
 
         </nz-card>
-        <ng-template #extraTemplate>
-            <button nz-button nzType="primary" nzSize="default">Ver Eventos</button>
+        <ng-template #templateMotorElectrico>
+            <button nz-button nzType="danger" nzSize="default"><i nz-icon nzType="poweroff" nzTheme="outline"></i>Motor Apagado</button>
         </ng-template>
     </div>
 </div>

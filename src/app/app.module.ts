@@ -45,6 +45,7 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzProgressModule } from 'ng-zorro-antd/progress';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzTagModule } from 'ng-zorro-antd/tag';
+import { NzSliderModule } from 'ng-zorro-antd/slider';
 
 // import { NZ_I18N } from 'ng-zorro-antd/i18n';
 // import { en_US } from 'ng-zorro-antd/i18n';
@@ -130,7 +131,8 @@ registerLocaleData(en);
     NgxSpinnerModule,
     NzProgressModule,
     NzAlertModule,
-    NzTagModule
+    NzTagModule,
+    NzSliderModule
     //////////////////////////
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
