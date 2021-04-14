@@ -137,9 +137,13 @@ ng-zorro-antd/alert
 
 ng-zorro-antd/button
 
+ng-zorro-antd/calendar
+
 ng-zorro-antd/card
 
 ng-zorro-antd/checkbox
+
+ng-zorro-antd/date-picker
 
 ng-zorro-antd/drawer
 
@@ -169,11 +173,15 @@ ng-zorro-antd/radio
 
 ng-zorro-antd/select
 
+ng-zorro-antd/slider
+
 ng-zorro-antd/spin
 
 ng-zorro-antd/table
 
 ng-zorro-antd/tag
+
+ng-zorro-antd/time-picker
 
 ng-zorro-antd/tooltip
 
